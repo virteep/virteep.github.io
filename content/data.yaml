@@ -1,0 +1,108 @@
+# Personal Website Content
+# Edit this file to update your website content without touching code
+
+# About Section
+about:
+  name: "Virtee Parekh"
+  #headline: "Data Scientist with 5+ years in ranking and recommendations."
+  photo: "/static/images/profile.jpg?v=2"  # Add your profile photo here
+  bio: |
+    I build and scale ranking and recommendation systems, developing new models and features that translate into measurable product gains. Based in California.
+    
+# Work Experience
+work_experience:
+  - title: "Senior Data Scientist"
+    company: "Indeed.com"
+    location: "San Francisco, CA"
+    start_date: "Apr 2021"
+    end_date: "Present"
+    highlights:
+      - "Shipped a new learning to rank model for our ranking tech stack, improving job quality +5% and reducing negative engagement −15%."
+      - "Generating and integrating LLM-based embeddings as production features to improve representation and ranking performance."
+      - "Unified multiple production models into one multi-target model, reducing tech debt and delivering +2% lift with no user engagement regressions."
+      - "Accelerated iteration via feature engineering + training optimizations: 3mo -> 1mo feature cycle and −80% training time."
+  
+  - title: "Business Intelligence Analyst II"
+    company: "Indeed.com"
+    location: "New York, NY"
+    start_date: "Feb 2019"
+    end_date: "Apr 2021"
+    highlights:
+      - "Built scalable time-series forecasting powering leadership planning and investment decisions."
+      - "Reduced forecast error 20% -> 7% across markets (six-figure impact)."
+      - "Shipped predictive dashboards/models (quota pacing, req forecasts) saving millions in sales capacity."
+      - "Applied causal inference and LTV modeling to guide major revenue and marketing initiatives."
+
+
+  - title: "Business Intelligence Intern"
+    company: "Indeed.com"
+    location: "New York, NY"
+    start_date: "Feb 2018"
+    end_date: "Apr 2018"
+    highlights:
+      - "Delivered a revenue forecast with ~5% error, saving ~1 hour/day of manual work."
+      - "Turned complex source data into usable logic via deep EDA and rapid iteration."
+  
+  
+# Education
+education:
+  - degree: "Master of Science in Computer Science"
+    institution: "Rochester Institute of Technology"
+    location: "Rochester, NY"
+    start_date: "Aug 2016"
+    end_date: "Dec 2018"
+    
+  
+  - degree: "Bachelor of Engineering in Computer Engineering"
+    institution: "University of Pune"
+    location: "Pune, MH"
+    start_date: "Aug 2012"
+    end_date: "May 2016"
+
+# Life Section
+life:
+  title: "Life"
+  goodreads_user_id: "151512172"  # Your Goodreads user ID
+  cards:
+    - type: "books"
+      title: "📚 Currently Reading"
+      books:
+        - title: "Superintelligence"
+          author: "Nick Bostrom"
+        - title: "The Alignment Problem"
+          author: "Brian Christian"
+        - title: "Feel-Good Productivity"
+          author: "Ali Abdaal"
+      # To integrate with Goodreads, get your RSS feed from:
+      # https://www.goodreads.com/review/list_rss/YOUR_USER_ID?shelf=currently-reading
+    
+    - type: "running"
+      title: "🏃‍♀️ Running This Year"
+      stats:
+        total_km: 15
+        year: 2026
+        goal: 200
+    
+    - type: "art"
+      title: "🎨 Pattachitra Paintings"
+      images:
+        - "/static/images/IMG_7978_compressed.JPG"
+        - "/static/images/IMG_8232_compressed.JPG"
+    
+    - type: "coffee"
+      title: "☕ Favorite Coffee"
+      shops:
+        - name: "Hedge Coffee"
+          location: "San Francisco"
+        - name: "Moonwake Coffee Roasters"
+          location: "San Jose"
+        - name: "Kaizen & Coffee"
+          location: "San Mateo"
+
+# Contact Information
+contact:
+  email: "virtee.parekh@gmail.com"
+  linkedin: "https://www.linkedin.com/in/virteeparekh"
+  resume: "/static/VirteeParekh_Resume2026.pdf"  # Add your resume PDF to static folder
+  github: "https://github.com/virteep"
+  
