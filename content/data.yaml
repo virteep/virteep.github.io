@@ -18,6 +18,7 @@ work_experience:
     end_date: "Present"
     highlights:
       - "Shipped a new learning to rank model for our ranking tech stack, improving job quality +5% and reducing negative engagement −15%."
+      - "Leading the development of a new contextual bandits ranker for the search feed."
       - "Generating and integrating LLM-based embeddings as production features to improve representation and ranking performance."
       - "Unified multiple production models into one multi-target model, reducing tech debt and delivering +2% lift with no user engagement regressions."
       - "Accelerated iteration via feature engineering + training optimizations: 3mo -> 1mo feature cycle and −80% training time."
@@ -59,13 +60,20 @@ education:
     start_date: "Aug 2012"
     end_date: "May 2016"
 
+# Projects Section
+projects:
+  - name: "Protein Pantry"
+    description: "Tracks protein content in my regular foods and auto-calculates totals for my go-to recipes for quick meal planning"
+    github: "https://github.com/virteep/protein-pantry"
+    technologies: ["Python", "FastAPI", "React", "TypeScript"]
+
 # Life Section
 life:
   title: "Life"
   goodreads_user_id: "151512172"  # Your Goodreads user ID
   cards:
     - type: "books"
-      title: "📚 Currently Reading"
+      title: "📚 Read This Year"
       books:
         - title: "Superintelligence"
           author: "Nick Bostrom"
@@ -73,15 +81,15 @@ life:
           author: "Brian Christian"
         - title: "Feel-Good Productivity"
           author: "Ali Abdaal"
-      # To integrate with Goodreads, get your RSS feed from:
-      # https://www.goodreads.com/review/list_rss/YOUR_USER_ID?shelf=currently-reading
+      # Books are automatically pulled from your Goodreads 'read' shelf
+      # Filtered to show only books read in the current year (2026)
     
     - type: "running"
       title: "🏃‍♀️ Running This Year"
       stats:
-        total_km: 15
+        total_km: 20
         year: 2026
-        goal: 200
+        goal: 150
     
     - type: "art"
       title: "🎨 Pattachitra Paintings"
@@ -90,7 +98,7 @@ life:
         - "/static/images/IMG_8232_compressed.JPG"
     
     - type: "coffee"
-      title: "☕ Favorite Coffee"
+      title: "☕ Favorite CA Coffee"
       shops:
         - name: "Hedge Coffee"
           location: "San Francisco"

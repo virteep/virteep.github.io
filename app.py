@@ -29,33 +29,45 @@ def get_content_mtime():
     return os.path.getmtime(CONTENT_FILE)
 
 
-def fetch_goodreads_books(user_id):
-    """Fetch currently reading books from Goodreads RSS feed."""
+def fetch_goodreads_books(user_id, year=2026):
+    """Fetch books read in a specific year from Goodreads RSS feed."""
     try:
-        # Goodreads RSS feed for currently-reading shelf
-        rss_url = f"https://www.goodreads.com/review/list_rss/{user_id}?shelf=currently-reading"
+        import re
+        from datetime import datetime
+        
+        # Goodreads RSS feed for read shelf
+        rss_url = f"https://www.goodreads.com/review/list_rss/{user_id}?shelf=read"
         feed = feedparser.parse(rss_url)
 
         books = []
-        for entry in feed.entries[:3]:  # Get top 3 books
-            title = entry.title.split(" by ")[0] if " by " in entry.title else entry.title
-            author = entry.title.split(" by ")[1] if " by " in entry.title else "Unknown"
+        for entry in feed.entries:
+            # Extract read date from entry
+            read_date = None
+            if hasattr(entry, 'user_read_at'):
+                try:
+                    read_date = datetime.strptime(entry.user_read_at, "%a, %d %b %Y %H:%M:%S %z")
+                except:
+                    pass
             
-            # Extract book cover image from description
-            cover_url = None
-            if hasattr(entry, 'description'):
-                # Parse the HTML description to find the image
-                import re
-                img_match = re.search(r'<img[^>]+src="([^"]+)"', entry.description)
-                if img_match:
-                    cover_url = img_match.group(1)
-            
-            books.append({
-                "title": title, 
-                "author": author,
-                "cover": cover_url
-            })
-
+            # Filter by year
+            if read_date and read_date.year == year:
+                title = entry.title.split(" by ")[0] if " by " in entry.title else entry.title
+                author = entry.title.split(" by ")[1] if " by " in entry.title else "Unknown"
+                
+                # Extract book cover image from description
+                cover_url = None
+                if hasattr(entry, 'description'):
+                    img_match = re.search(r'<img[^>]+src="([^"]+)"', entry.description)
+                    if img_match:
+                        cover_url = img_match.group(1)
+                
+                books.append({
+                    "title": title, 
+                    "author": author,
+                    "cover": cover_url
+                })
+        
+        # Return all books from the year (no limit)
         return books if books else None
     except Exception as e:
         print(f"Error fetching Goodreads data: {e}")
@@ -84,7 +96,8 @@ def load_content():
 
     # Fetch Goodreads books if user_id is configured
     if data.get("life", {}).get("goodreads_user_id"):
-        books = fetch_goodreads_books(data["life"]["goodreads_user_id"])
+        current_year = datetime.now().year
+        books = fetch_goodreads_books(data["life"]["goodreads_user_id"], year=current_year)
         if books and data.get("life", {}).get("cards"):
             # Update the books card with fetched data
             for card in data["life"]["cards"]:
