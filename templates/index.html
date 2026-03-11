@@ -4,15 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="PVYEfUYcXQS8ff6wz6dPuYbZ3KNJGpCZDwWd_t8IYHg" />
-    <meta name="description" content="{{ about.headline or 'Personal website' }}">
+    <meta name="description" content="{{ about.name }} - {{ about.headline }} Portfolio, projects, and professional experience.">
     <meta name="author" content="{{ about.name }}">
+    <meta name="keywords" content="{{ about.name }}, Data Scientist, Machine Learning, Ranking, Recommendations, Indeed, Portfolio">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="{{ about.name }}">
-    <meta property="og:description" content="{{ about.headline }}">
+    <meta property="og:title" content="{{ about.name }} - Data Scientist Portfolio">
+    <meta property="og:description" content="{{ about.headline }} Portfolio and projects.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://virteep.github.io/">
+    <meta property="og:site_name" content="{{ about.name }}">
     
-    <title>{{ about.name }}</title>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ about.name }} - Data Scientist Portfolio">
+    <meta name="twitter:description" content="{{ about.headline }}">
+    
+    <title>{{ about.name }} - Data Scientist | Portfolio</title>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ about.name }}",
+      "jobTitle": "Data Scientist",
+      "description": "{{ about.headline }}",
+      "url": "https://virteep.github.io/",
+      {% if contact.email %}
+      "email": "{{ contact.email }}",
+      {% endif %}
+      "sameAs": [
+        {% if contact.linkedin %}"{{ contact.linkedin }}"{% endif %}{% if contact.github %},
+        "{{ contact.github }}"{% endif %}
+      ],
+      "alumniOf": [
+        {% for edu in education %}
+        {
+          "@type": "EducationalOrganization",
+          "name": "{{ edu.institution }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Indeed.com"
+      }
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
