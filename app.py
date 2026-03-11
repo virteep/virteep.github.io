@@ -126,6 +126,18 @@ def static_files(filename):
     return send_from_directory("static", filename)
 
 
+@app.route("/sitemap.xml")
+def sitemap():
+    """Serve sitemap.xml from root."""
+    return send_from_directory("static", "sitemap.xml", mimetype="application/xml")
+
+
+@app.route("/robots.txt")
+def robots():
+    """Serve robots.txt from root."""
+    return send_from_directory("static", "robots.txt", mimetype="text/plain")
+
+
 @app.context_processor
 def utility_processor():
     """Add utility functions to template context."""
