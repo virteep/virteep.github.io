@@ -64,8 +64,8 @@ education:
 projects:
   - name: "Protein Pantry"
     description: "Tracks protein content in my regular foods and auto-calculates totals for my go-to recipes for quick meal planning"
+    link: "https://protein-pantry.vercel.app/"
     github: "https://github.com/virteep/protein-pantry"
-    technologies: ["Python", "FastAPI", "React", "TypeScript"]
 
 # Life Section
 life:

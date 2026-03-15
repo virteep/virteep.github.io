@@ -427,7 +427,15 @@
                 {% for project in projects %}
                 <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300">
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-3">
+                        {% if project.link %}
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">
+                                {{ project.name }}
+                            </a>
+                        </h3>
+                        {% else %}
                         <h3 class="text-xl font-semibold text-gray-900">{{ project.name }}</h3>
+                        {% endif %}
                         {% if project.github %}
                         <a 
                             href="{{ project.github }}" 
@@ -444,17 +452,7 @@
                     </div>
                     
                     {% if project.description %}
-                    <p class="text-gray-700 leading-relaxed mb-4">{{ project.description }}</p>
-                    {% endif %}
-                    
-                    {% if project.technologies %}
-                    <div class="flex flex-wrap gap-2">
-                        {% for tech in project.technologies %}
-                        <span class="px-3 py-1 bg-white text-gray-700 text-xs font-medium rounded-full border border-gray-200">
-                            {{ tech }}
-                        </span>
-                        {% endfor %}
-                    </div>
+                    <p class="text-gray-700 leading-relaxed">{{ project.description }}</p>
                     {% endif %}
                 </div>
                 {% endfor %}
