@@ -4,7 +4,6 @@
 # About Section
 about:
   name: "Virtee Parekh"
-  #headline: "Data Scientist with 5+ years in ranking and recommendations."
   photo: "/static/images/profile.jpg?v=2"  # Add your profile photo here
   bio: |
     I build and scale ranking and recommendation systems, developing new models and features that translate into measurable product gains. Based in California.
