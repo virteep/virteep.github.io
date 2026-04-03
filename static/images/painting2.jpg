@@ -1,0 +1,35 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="url(#grad2)"/>
+  
+  <!-- Traditional Flower Pattern -->
+  <circle cx="100" cy="100" r="50" fill="white" opacity="0.3"/>
+  
+  <!-- Petals -->
+  <ellipse cx="100" cy="60" rx="15" ry="30" fill="white" opacity="0.9"/>
+  <ellipse cx="100" cy="140" rx="15" ry="30" fill="white" opacity="0.9"/>
+  <ellipse cx="60" cy="100" rx="30" ry="15" fill="white" opacity="0.9"/>
+  <ellipse cx="140" cy="100" rx="30" ry="15" fill="white" opacity="0.9"/>
+  
+  <!-- Diagonal petals -->
+  <ellipse cx="73" cy="73" rx="20" ry="25" fill="white" opacity="0.85" transform="rotate(-45 73 73)"/>
+  <ellipse cx="127" cy="73" rx="20" ry="25" fill="white" opacity="0.85" transform="rotate(45 127 73)"/>
+  <ellipse cx="73" cy="127" rx="20" ry="25" fill="white" opacity="0.85" transform="rotate(45 73 127)"/>
+  <ellipse cx="127" cy="127" rx="20" ry="25" fill="white" opacity="0.85" transform="rotate(-45 127 127)"/>
+  
+  <!-- Center -->
+  <circle cx="100" cy="100" r="15" fill="white"/>
+  <circle cx="100" cy="100" r="8" fill="#764ba2"/>
+  
+  <!-- Text -->
+  <text x="100" y="190" font-family="Georgia, serif" font-size="10" fill="white" text-anchor="middle" opacity="0.7">
+    Traditional Odia Art
+  </text>
+</svg>
