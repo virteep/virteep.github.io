@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    {% set seo_headline = about.headline | default('Senior Machine Learning Engineer at Indeed — ranking, recommendations, and ML systems.', true) %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://virteep.github.io/" />
     <meta name="google-site-verification" content="PVYEfUYcXQS8ff6wz6dPuYbZ3KNJGpCZDwWd_t8IYHg" />
-    <meta name="description" content="{{ about.name }} - {{ about.headline }} Portfolio, projects, and professional experience.">
+    <meta name="description" content="{{ about.name }} — {{ seo_headline }} Portfolio, projects, and professional experience.">
     <meta name="author" content="{{ about.name }}">
-    <meta name="keywords" content="{{ about.name }}, Data Scientist, Machine Learning, Ranking, Recommendations, Indeed, Portfolio">
+    <meta name="keywords" content="{{ about.name }}, Virtee Parekh, Machine Learning Engineer, Data Scientist, Machine Learning, Ranking, Recommendations, Indeed, Portfolio">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="{{ about.name }} - Data Scientist Portfolio">
-    <meta property="og:description" content="{{ about.headline }} Portfolio and projects.">
+    <meta property="og:title" content="{{ about.name }} | Portfolio">
+    <meta property="og:description" content="{{ seo_headline }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://virteep.github.io/">
     <meta property="og:site_name" content="{{ about.name }}">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ about.name }} - Data Scientist Portfolio">
-    <meta name="twitter:description" content="{{ about.headline }}">
+    <meta name="twitter:title" content="{{ about.name }} | Portfolio">
+    <meta name="twitter:description" content="{{ seo_headline }}">
     
-    <title>{{ about.name }} - Data Scientist | Portfolio</title>
+    <title>{{ about.name }} | Machine Learning Engineer &amp; Portfolio</title>
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "{{ about.name }}",
-      "jobTitle": "Data Scientist",
-      "description": "{{ about.headline }}",
+      "name": {{ about.name | tojson }},
+      "jobTitle": "Machine Learning Engineer",
+      "description": {{ seo_headline | tojson }},
       "url": "https://virteep.github.io/",
       {% if contact.email %}
-      "email": "{{ contact.email }}",
+      "email": {{ contact.email | tojson }},
       {% endif %}
       "sameAs": [
-        {% if contact.linkedin %}"{{ contact.linkedin }}"{% endif %}{% if contact.github %},
-        "{{ contact.github }}"{% endif %}
+        {% if contact.linkedin %}{{ contact.linkedin | tojson }}{% endif %}{% if contact.github %}{% if contact.linkedin %}, {% endif %}{{ contact.github | tojson }}{% endif %}
       ],
       "alumniOf": [
         {% for edu in education %}
         {
           "@type": "EducationalOrganization",
-          "name": "{{ edu.institution }}"
+          "name": {{ edu.institution | tojson }}
         }{% if not loop.last %},{% endif %}
         {% endfor %}
       ],
@@ -239,7 +240,7 @@
                 <!-- Text Content -->
                 <div class="flex-1 order-2 md:order-1">
                     <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                        👋 Hi! I'm {{ about.name.split()[0] if about.name else "Virtee" }}
+                        👋 Hi! I'm {{ about.name }}
                     </h1>
                     {% if about.headline %}
                     <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed mb-3">
